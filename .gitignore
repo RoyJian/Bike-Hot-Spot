@@ -1,0 +1,7 @@
+# depandncy file
+*.lock
+node_modules
+# macOS file
+.DS_Store
+# env file
+.env

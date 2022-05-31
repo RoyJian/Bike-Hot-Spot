@@ -1,0 +1,30 @@
+{
+  "name": "BikeHotSpot",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "git@github.com:RoyJian/BikeHotSpot.git",
+  "author": "RoyJian <roy881124@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.ts"
+  },
+  "dependencies": {
+    "@types/amqplib": "^0.8.2",
+    "amqplib": "^0.9.1",
+    "apollo-server": "^3.8.1",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.2"
+  }
+}
