@@ -1,8 +1,11 @@
+import GetNearSpot from '../models/GetNearSpot';
 export default function root() {
-  const foo = {
+  const root = {
     Query: {
-      id: () => 'Query of users success!!',
+      async spot(_: any, args: { address: string; version: string }) {
+        return await GetNearSpot(args.address, args.version);
+      },
     },
   };
-  return foo;
+  return root;
 }

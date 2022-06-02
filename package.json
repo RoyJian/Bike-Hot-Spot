@@ -9,12 +9,14 @@
     "start": "nodemon index.ts"
   },
   "dependencies": {
+    "@graphql-tools/load-files": "^6.5.3",
     "@types/amqplib": "^0.8.2",
     "amqplib": "^0.9.1",
     "apollo-server": "^3.8.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
-    "graphql": "^16.5.0"
+    "graphql": "^16.5.0",
+    "mongodb": "^4.6.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.0",

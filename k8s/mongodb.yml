@@ -1,0 +1,65 @@
+## Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: bhs-mongodb
+  labels:
+    app: mongodb
+spec:
+  selector:
+    app: mongodb
+  type: NodePort
+  ports:
+    - name: mongodb
+      port: 27017
+      targetPort: 27017
+      nodePort: 30003
+---
+## Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhs-mongodb
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:latest
+          envFrom:
+            - configMapRef:
+                name: mongodb-config
+          ports:
+            - containerPort: 27017
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+            tcpSocket:
+              port: 27017
+          readinessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+            tcpSocket:
+              port: 27017

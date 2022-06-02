@@ -15,5 +15,6 @@ k3d cluster delete
 ```
 rabbitmqctl add_user {username} {password}
 rabbitmqctl set_user_tags username administrator
+rabbitmqctl set_permissions -p / newadmin ".*" ".*" ".*"
 ```
 

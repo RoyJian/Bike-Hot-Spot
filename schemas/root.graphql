@@ -1,0 +1,15 @@
+type Query {
+  spot(address:String!,version:String!): [Spot],
+}
+type Spot {
+    _id: Int,
+    available: String,
+    datatime: String,
+    station: String,
+    location: Location,
+    version: String
+}
+type Location {
+  type:String,
+  coordinates:[Float]
+}

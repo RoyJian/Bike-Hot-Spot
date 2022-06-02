@@ -50,7 +50,7 @@ spec:
               cpu: 500m
               memory: 512Mi
           livenessProbe:
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
             successThreshold: 1
@@ -58,7 +58,7 @@ spec:
             tcpSocket:
               port: 5672
           readinessProbe:
-            initialDelaySeconds: 300
+            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
             successThreshold: 1
