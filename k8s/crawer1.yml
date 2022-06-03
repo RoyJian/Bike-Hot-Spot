@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhs-crawer1
+  labels:
+    app: crawer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crawer1
+  template:
+    metadata:
+      labels:
+        app: crawer1
+    spec:
+      containers:
+      - name: crawer1
+        image: royjian/bike-hot-spot
+        command: ['sh', '-c', 'ts-node services/Crawer1.ts']
+        envFrom:
+          - configMapRef:
+              name: nodejs-config
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi

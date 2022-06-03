@@ -6,7 +6,11 @@
   "author": "RoyJian <roy881124@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.ts",
+    "start": "ts-node index.ts",
+    "start crawer1": "ts-node services/Crawer1.ts",
+    "start crawer2": "ts-node services/Crawer2.ts",
+    "start worker1": "ts-node services/Workwe1.ts",
+    "start worker2": "ts-node services/Workwe2.ts",
     "dev":"nodemon index.ts"
   },
   "dependencies": {

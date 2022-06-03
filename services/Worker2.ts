@@ -24,7 +24,7 @@ async function ProcessQueue() {
             type: 'Point',
             coordinates: [parseFloat(obj.lng), parseFloat(obj.lat)],
           },
-          datatime: obj.mday,
+          datatime: obj.updateTime,
         };
         const id: number = parseInt(obj.sno, 10);
         collection.updateOne({ _id: id }, { $set: { _id: id, ...site } }, { upsert: true });

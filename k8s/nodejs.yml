@@ -1,0 +1,66 @@
+## Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: bhs-nodejs
+  labels:
+    app: nodejs
+spec:
+  selector:
+    app: nodejs
+  type: NodePort
+  ports:
+    - name: nodejs
+      port: 4000
+      targetPort: 4000
+      nodePort: 30004
+---
+## Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhs-nodejs
+  labels:
+    app: nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+        - name: nodejs
+          image: royjian/bike-hot-spot:latest
+          command: ['sh', '-c', 'yarn start']
+          envFrom:
+            - configMapRef:
+                name: nodejs-config
+          ports:
+            - containerPort: 4000
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+            tcpSocket:
+              port: 4000
+          readinessProbe:
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+            tcpSocket:
+              port: 4000

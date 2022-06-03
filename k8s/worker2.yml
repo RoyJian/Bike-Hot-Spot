@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bhs-worker2
+  labels:
+    app: worker2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker2
+  template:
+    metadata:
+      labels:
+        app: worker2
+    spec:
+      containers:
+      - name: worker2
+        image: royjian/bike-hot-spot
+        command: ['sh', '-c', 'ts-node services/Worker2.ts']
+        envFrom:
+          - configMapRef:
+              name: nodejs-config
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
