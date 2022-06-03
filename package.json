@@ -11,7 +11,7 @@
     "start crawer2": "ts-node services/Crawer2.ts",
     "start worker1": "ts-node services/Workwe1.ts",
     "start worker2": "ts-node services/Workwe2.ts",
-    "dev":"nodemon index.ts"
+    "dev": "nodemon index.ts"
   },
   "dependencies": {
     "@graphql-tools/load-files": "^6.5.3",
@@ -21,7 +21,8 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
-    "mongodb": "^4.6.0"
+    "mongodb": "^4.6.0",
+    "typescript": "^4.7.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.27.0",
@@ -31,7 +32,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-typescript": "^0.14.0",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2",
-    "typescript": "^4.7.2"
+    "prettier": "^2.6.2"
   }
 }
