@@ -1,7 +1,6 @@
 import axios from 'axios';
 import ch from '../utils/RabbitmqConn';
 import 'dotenv/config';
-const { RABBITMQ_HOST, RABBITMQ_PORT } = process.env;
 
 async function GetUbileV1() {
   const v1URL: string = 'https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json';

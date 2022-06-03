@@ -9,5 +9,3 @@ export default async function GetCoordinates(address: string) {
   const lng = data.slice(data.indexOf('%2C') + 3, data.indexOf('&amp'));
   return [parseFloat(lng), parseFloat(lat)];
 }
-
-GetCoordinates('台北市信義區信義路五段7號');
