@@ -66,8 +66,8 @@ spec:
               port: 4000
       initContainers:
       - name: init-mongodb
-        image: busybox:1.28
-        command: ['sh', '-c', "until nslookup $MONGODB_HOST; do echo waiting for mydb; sleep 2; done"]
+        image: busybox:1.31
+        command: ['sh', '-c', "until  nc -zv $MONGODB_HOST $MONGODB_PORT; do echo waiting for mydb; sleep 2; done"]
         envFrom:
           - configMapRef:
               name: nodejs-config
