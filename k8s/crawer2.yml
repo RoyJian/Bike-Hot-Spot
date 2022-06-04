@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: bhs-crawer2
   labels:
-    app: crawer
+    app: crawer2
 spec:
   replicas: 1
   selector:
