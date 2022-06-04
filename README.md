@@ -4,7 +4,7 @@
 ### Using docker-compose
 1. set .env file   
  go to `/template` set .env  (whitout any .yml file )
-2. cp .env
+2. copy .env
    ```code=bash
     cp ./template/.env ./
    ```
@@ -22,7 +22,7 @@
    input in Variable:   
    ```code=json
    {
-      "address": "台北市政府",
+      "address": "台北101",
       "version": "ubikev1"
    }
    ```
@@ -34,7 +34,7 @@
 ### Using k8s 
 1. set config   
    go to `/template` set config file (whitout .env)
-2. cp them
+2. copy them
    ```code=sh
    cp template/*.yml k8s
    ```
