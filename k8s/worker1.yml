@@ -28,3 +28,16 @@ spec:
           requests:
             cpu: 500m
             memory: 512Mi
+      initContainers:
+      - name: init-rabbitmq
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup $RABBITMQ_HOST; do echo waiting for myservice; sleep 2; done']
+        envFrom:
+          - configMapRef:
+              name: nodejs-config
+      - name: init-mongodb
+        image: busybox:1.28
+        command: ['sh', '-c', "until nslookup $MONGODB_HOST; do echo waiting for mydb; sleep 2; done"]
+        envFrom:
+          - configMapRef:
+              name: nodejs-config

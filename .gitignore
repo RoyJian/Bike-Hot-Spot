@@ -4,6 +4,6 @@ node_modules
 # macOS file
 .DS_Store
 # env file
-.env
-mongodb-config.yml
-nodejs-config.yml
+/.env
+/k8s/mongodb-config.yml
+/k8s/nodejs-config.yml

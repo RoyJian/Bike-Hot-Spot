@@ -1,0 +1,63 @@
+version: '3'
+services:
+  mongodb:
+    container_name: bhs-mongodb
+    image: mongo:latest
+    restart: always
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASS}
+      - MONGO_INITDB_DATABASE=${MONGODB_DB}
+    ports: 
+      - 127.0.0.1:${MONGODB_PORT}:27017
+  rabbitmq:
+    container_name: bhs-rabbitmq
+    image: rabbitmq:3.9.18-management-alpine
+    restart: always
+    ports:
+      - 127.0.0.1:${RABBITMQ_PORT}:5672
+      - 127.0.0.1:30001:15672
+  web:
+    container_name: bhs-nodejs
+    image: bike-hot-spot
+    command: yarn start
+    restart: always
+    ports:
+      - 127.0.0.1:${PORT}:4000
+    depends_on:
+      - mongodb
+  crawer1:
+    container_name: bhs-crawer1
+    image: bike-hot-spot
+    command: yarn crawer1
+    restart: always
+    depends_on:
+      - mongodb
+      - rabbitmq
+  crawer2:
+    container_name: bhs-crawer2
+    image: bike-hot-spot
+    command: yarn crawer2
+    restart: always
+    depends_on:
+      - mongodb
+      - rabbitmq
+  worker1:
+    container_name: bhs-worker1
+    image: bike-hot-spot
+    command: yarn worker1
+    restart: always
+    depends_on:
+      - mongodb
+      - rabbitmq
+  worker2:
+    container_name: bhs-worker2
+    image: bike-hot-spot
+    command: yarn worker2
+    restart: always
+    depends_on:
+      - mongodb
+      - rabbitmq
+    
+    
+
