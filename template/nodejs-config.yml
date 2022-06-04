@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: nodejs-config
 data:
+  NODE_ENV: "Deployment"
   PORT: "4000"
   RABBITMQ_HOST: "bhs-rabbitmq"
   RABBITMQ_PORT: "5672"
