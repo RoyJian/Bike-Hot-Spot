@@ -9,7 +9,8 @@ async function GetUbileV1() {
 }
 
 async function InsertQueue() {
-  const channel = await ch();
+  const connection = await ch();
+  const channel = await connection.createChannel();
   await channel.assertQueue('UbikeV2');
   const task = async () => {
     const data = JSON.stringify(await GetUbileV1());

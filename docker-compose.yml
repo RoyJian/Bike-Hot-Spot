@@ -14,6 +14,7 @@ services:
     container_name: bhs-rabbitmq
     image: rabbitmq:3.9.18-management-alpine
     restart: always
+    command: rabbitmq-plugins enable rabbitmq_stream
     ports:
       - 127.0.0.1:${RABBITMQ_PORT}:5672
       - 127.0.0.1:30001:15672
@@ -58,6 +59,3 @@ services:
     depends_on:
       - mongodb
       - rabbitmq
-    
-    
-

@@ -10,6 +10,7 @@
     "crawer2": "ts-node services/Crawer2.ts",
     "worker1": "ts-node services/Worker1.ts",
     "worker2": "ts-node services/Worker2.ts",
+    "worker3": "ts-node services/Worker3.ts",
     "start": "ts-node index.ts",
     "dev": "nodemon index.ts"
   },
@@ -19,6 +20,7 @@
     "amqplib": "^0.9.1",
     "apollo-server": "^3.8.1",
     "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
     "mongodb": "^4.6.0",

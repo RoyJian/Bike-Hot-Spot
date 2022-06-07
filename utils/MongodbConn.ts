@@ -6,7 +6,7 @@ export class MongodbConn {
   public client: MongoClient;
   public db: Db;
   constructor() {
-    const host = NODE_ENV === 'Deployment' ? MONGODB_HOST : 'localhost';
+    const host = NODE_ENV === 'Deployment' ? MONGODB_HOST : '127.0.0.1';
     const url = `mongodb://${MONGODB_USER}:${MONGODB_PASS}@${host}:${MONGODB_PORT}`;
     this.client = new MongoClient(url);
     this.db = this.client.db(MONGODB_DB);

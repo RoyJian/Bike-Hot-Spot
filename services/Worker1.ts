@@ -4,7 +4,8 @@ import 'dotenv/config';
 
 async function ProcessQueue() {
   const queue = 'UbikeV1';
-  const channel = await ch();
+  const connection = await ch();
+  const channel = await connection.createChannel();
   await channel.assertQueue(queue);
   // const db = await MongodbConn();
   // await db.createCollection('ubikev1').catch((err) => {});
